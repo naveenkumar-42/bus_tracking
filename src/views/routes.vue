@@ -195,7 +195,7 @@ input[type="number"] {
   font-size: 16px;
   transition: border-color 0.3s ease;
   outline: none;
-  max-width: 300px ;
+  max-width: 250px ;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 

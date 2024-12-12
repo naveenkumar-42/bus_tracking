@@ -3,7 +3,7 @@
       <div class="topbar">
         <topbar />
       </div>
-  
+      <div class="main">
       <section class="header">
         <h1>About Delhi Transport Corporation</h1>
         <p>Serving the capital city with reliable and efficient transportation since its inception.</p>
@@ -44,6 +44,7 @@
           </p>
         </div>
       </section>
+      </div>
     </div>
   </template>
   
@@ -64,28 +65,37 @@
     line-height: 1.6;
     color: #333;
     padding: 2rem;
-   
+    margin-right: 20px;
+    margin-top: 70px;
     margin: 0 auto;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width:100%;
   }
+  .main{
+    margin-top: 80px;
+    max-width: 370px;
+
+  }
   
   .header {
     text-align: center;
+    padding: 10px;
     margin-bottom: 3rem;
+    margin-left: 25px;
+    background-color: #A0C7C9;
   }
   
   .header h1 {
     font-size: 2.5rem;
-    color: #d32f2f;
+    color: black;
     font-weight: bold;
   }
   
   .header p {
     font-size: 1.2rem;
-    color: #555;
+    color: whitesmoke;
   }
   
   .content {
@@ -106,12 +116,12 @@
     top: 0;
     bottom: 0;
     width: 4px;
-    background-color: #d32f2f;
+    background-color: black;
   }
   
   h2 {
     font-size: 1.8rem;
-    color: #d32f2f;
+    color: black;
     margin-bottom: 1rem;
     position: relative;
   }
@@ -123,7 +133,7 @@
     left: 0;
     width: 50px;
     height: 3px;
-    background-color: #d32f2f;
+    background-color: black;
   }
   
   ul {
@@ -139,7 +149,7 @@
   
   ul li::before {
     content: "\2022";
-    color: #d32f2f;
+    color: black;
     font-weight: bold;
     position: absolute;
     left: 0;

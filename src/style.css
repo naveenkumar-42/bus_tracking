@@ -120,5 +120,6 @@ button:focus-visible {
 
   #app {
     padding: 0.5rem;
+    margin-left: 25px;
   }
 }
