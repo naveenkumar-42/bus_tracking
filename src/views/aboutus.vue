@@ -38,9 +38,9 @@
         <div class="contact">
           <h2>Contact Us</h2>
           <p>
-            <strong>Address:</strong> DTC Headquarters, Indraprastha Estate, New Delhi - 110002<br>
-            <strong>Email:</strong> contact@dtc.gov.in<br>
-            <strong>Phone:</strong> 1800-110-444 (Toll-Free)
+            <strong>Address:</strong> BIT <br>
+            <strong>Email:</strong> naveenkumarpoff@gmail.com <br>
+            <strong>Phone:</strong> +91-1234567890 <br>
           </p>
         </div>
       </section>
