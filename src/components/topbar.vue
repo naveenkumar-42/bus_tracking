@@ -53,7 +53,7 @@ export default {
   left: 0;
   width: 100%;
   height: 70px;
-  background-color: #9edfe3; /* Complementary green shade */
+  background-color: #9edfe3;
   display: flex;
   align-items: center;
   justify-content: space-between;
