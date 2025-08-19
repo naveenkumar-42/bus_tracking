@@ -4,22 +4,24 @@
       <img src="../assets/dlc.logo.png" alt="DTC Logo" class="topbar-logo" />
       <h1 class="topbar-title">Delhi Transport Corporation</h1>
     </div>
+
+    <!-- Hamburger Icon -->
     <div class="hamburger" @click="toggleMenu">
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-    <div :class="['menu-container', { show: isMenuOpen }]">
+
+    <!-- Navigation Menu -->
+    <nav :class="['menu', { show: isMenuOpen }]">
       <a
         v-for="item in menuItems"
         :key="item.text"
-        class="menu-link"
-        @click.stop="$router.push(item.route)"
-        href="#"
+        @click="$router.push(item.route)"
       >
         {{ item.text }}
       </a>
-    </div>
+    </nav>
   </div>
 </template>
 
@@ -46,32 +48,31 @@ export default {
 </script>
 
 <style scoped>
-/* General Topbar Styling */
 .topbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 70px;
-  background-color: #9edfe3;
+  background: #9edfe3;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 30px;
   box-shadow: 0 2px 8px rgba(99, 99, 99, 0.2);
   z-index: 1000;
-  font-family: "Arial", sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 35px;
+  gap: 20px;
 }
 
 .topbar-logo {
   height: 30px;
-  width: 40;
+  width: 40px;
 }
 
 .topbar-title {
@@ -79,104 +80,70 @@ export default {
   font-weight: bold;
   color: black;
   margin: 0;
-  margin-right: 5px;
 }
 
-.menu-container {
+.menu {
   display: flex;
   gap: 20px;
-  margin-right: 200px;
 }
 
-.menu-link {
+.menu a {
   text-decoration: none;
   font-size: 14px;
   font-weight: bold;
   color: black;
-  border-bottom: #155724;
   padding: 5px 10px;
   border-radius: 5px;
-  transition: all 0.3s ease;
+  transition: background 0.3s;
 }
 
-.menu-link:hover {
-  background-color: #A0C7C9;
-  color: black;
+.menu a:hover {
+  background: #a0c7c9;
 }
 
-/* Hamburger Icon Styling */
+/* Hamburger Icon */
 .hamburger {
-  display: none; /* Hidden by default */
+  display: none;
   flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 20px;
+  gap: 5px;
+  width: 25px;
   cursor: pointer;
-  margin-right: 22px;
 }
 
-.hamburger-line {
+.hamburger span {
   height: 3px;
-  background-color: black;
+  background: black;
   border-radius: 2px;
 }
 
-/* Mobile Menu Styling */
-.menu-container {
-  transition: max-height 0.3s ease-in-out;
-  overflow: hidden;
-}
-
-.menu-container.show {
-  display: flex;
-  flex-direction: column;
-  background-color: #A0C7C9;
-  position: absolute;
-  top: 70px;
-  left: 0;
-  width: 100%;
-  box-shadow: 0 4px 8px rgba(99, 99, 99, 0.2);
-  gap: 10px;
-  margin-top: 2px;
-  padding: 20px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .menu-container {
-    display: none; /* Hide menu links in mobile view */
+/* Mobile View */
+@media (max-width: 800px) {
+  .menu {
+    display: none;
     flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #a0c7c9;
+    box-shadow: 0 4px 8px rgba(99, 99, 99, 0.2);
+    padding: 20px;
   }
 
-  .menu-container.show {
-    display: flex; /* Show menu when toggled */
+  .menu.show {
+    display: flex;
   }
 
   .hamburger {
-    display: flex; /* Show hamburger icon in mobile view */
+    display: flex;
   }
 
   .topbar-title {
-    font-size: 18px; /* Adjust title size for mobile */
+    font-size: 18px;
   }
 
   .topbar {
-    padding: 0 15px; /* Reduce padding for smaller screens */
-  }
-}
-
-@media (min-width: 769px) {
-  .menu-container {
-    display: flex; /* Restore horizontal layout for larger screens */
-    flex-direction: row;
-    position: static; /* Remove absolute positioning */
-    background-color: transparent;
-    box-shadow: none;
-    padding: 0;
-  }
-
-  .hamburger {
-    display: none; /* Hide hamburger icon in larger screens */
+    padding: 0 15px;
   }
 }
 </style>
