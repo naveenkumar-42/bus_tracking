@@ -1,0 +1,150 @@
+
+.main {
+ 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  overflow: auto;
+  padding: 1rem;
+}
+
+.route-form {
+  margin-top:60px;
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #9edfe3;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.route-form h1 {
+  text-align: center;
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.route-form select {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.route-form button {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.schedule-container {
+  color: #333;
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #9edfe3;
+  max-width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+.bus-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.bus-container {
+  flex: 1 1 calc(100% - 2rem);
+  max-width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-container table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.schedule-container th,
+.schedule-container td {
+  padding: 0.6rem;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.schedule-container th {
+  background-color: #f4f4f4;
+}
+
+.schedule-container tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.schedule-container tr:hover {
+  background-color: #e9e9e9;
+}
+
+.highlight-source {
+  background-color: #d1e7dd;
+  font-weight: bold;
+  color: #0f5132;
+}
+
+.highlight-destination {
+  background-color: #f8d7da;
+  font-weight: bold;
+  color: #842029;
+}
+
+@media (max-width: 480px) {
+  .route-form {
+    margin-top: 60px;
+    padding: 1rem;
+  }
+
+  .route-form h1 {
+    font-size: 1.3rem;
+  }
+
+  .route-form button {
+    font-size: 0.9rem;
+  }
+
+  .bus-container {
+    flex: 1 1 100%;
+  }
+
+  .schedule-container table {
+    font-size: 0.8rem;
+  }
+}
