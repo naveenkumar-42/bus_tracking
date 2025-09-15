@@ -4,25 +4,21 @@
     <div class="container">
       <h1>Bus Stops Finder</h1>
 
-      <!-- Input for Route ID -->
       <div class="input-box">
         <label for="routeId">Enter Route ID:</label>
         <input type="number" v-model="routeId" id="routeId" placeholder="Enter route ID" />
         <button @click="fetchStops">Get Stops</button>
       </div>
 
-      <!-- Loading Indicator -->
       <div v-if="loading" class="loading">Loading...</div>
 
-      <!-- Error Message -->
       <div v-if="error" class="error">{{ error }}</div>
 
-      <!-- Display Map and Stops -->
       <div v-if="stops.length">
         <h2>Stops for Route ID: {{ routeId }}</h2>
         <div id="map" class="map-container"></div>
 
-        <!-- Display All Stops Names -->
+
         <div class="stops-line">
           <div v-for="(stop, index) in stops" :key="stop.stop_id" class="stop-item">
             <div class="line-connector">
@@ -50,18 +46,18 @@ export default {
   },
   data() {
     return {
-      routeId: null, // Input for route ID
-      stops: [], // Array to store stops data
-      loading: false, // Loading state
-      error: "", // Error message
-      map: null, // Map instance
-      markers: [], // Array of map markers
-      polyline: null, // Route polyline
+      routeId: null, 
+      stops: [], 
+      loading: false, 
+      error: "", 
+      map: null, 
+      markers: [], 
+      polyline: null, 
     };
   },
   methods: {
     async fetchStops() {
-      // Reset states
+      
       this.error = "";
       this.stops = [];
       if (!this.routeId) {
@@ -71,14 +67,14 @@ export default {
 
       this.loading = true;
       try {
-        // Fetch stops from the API
+        
         const response = await axios.get(
           `https://gtfs-7908.onrender.com/api/stops`,
           { params: { route_id: this.routeId } }
         );
         this.stops = response.data;
 
-        // Wait for the DOM to render the map container, then plot the stops
+        
         this.$nextTick(() => {
           this.plotStopsOnMap();
         });
@@ -90,9 +86,9 @@ export default {
     },
 
     initializeMap() {
-      // Initialize the map if not already initialized
+      
       if (!this.map) {
-        this.map = L.map("map").setView([28.6139, 77.209], 12); // Centered on Delhi
+        this.map = L.map("map").setView([28.6139, 77.209], 12); 
 
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -103,7 +99,7 @@ export default {
     plotStopsOnMap() {
       this.initializeMap();
 
-      // Clear previous markers and polyline
+      
       if (this.markers.length) {
         this.markers.forEach((marker) => this.map.removeLayer(marker));
         this.markers = [];
@@ -113,13 +109,13 @@ export default {
       }
 
       const customIcon = L.icon({
-        iconUrl: "/bus.png", // Path to your PNG file
-        iconSize: [18, 18], // Size of the icon [width, height]
-        iconAnchor: [8, 16], // Point of the icon that corresponds to marker's location
-        popupAnchor: [0, -16], // Point from which the popup should open relative to the iconAnchor
+        iconUrl: "/bus.png", 
+        iconSize: [18, 18], 
+        iconAnchor: [8, 16], 
+        popupAnchor: [0, -16], 
       });
 
-      // Plot markers for stops
+      
       const coordinates = [];
       this.stops.forEach((stop) => {
         const marker = L.marker([stop.stop_lat, stop.stop_lon], { icon: customIcon }).addTo(this.map);
@@ -128,7 +124,7 @@ export default {
         coordinates.push([stop.stop_lat, stop.stop_lon]);
       });
 
-      // Draw route polyline
+      
       if (coordinates.length) {
         this.polyline = L.polyline(coordinates, { color: "blue" }).addTo(this.map);
         this.map.fitBounds(this.polyline.getBounds());
@@ -144,7 +140,7 @@ body {
   margin: 0;
   padding: 0;
   color: #333;
-  background-color: #E0F7FA; /* Light cyan background color */
+  background-color: #E0F7FA; 
 }
 
 .container {
@@ -153,14 +149,14 @@ body {
   padding: 20px;
   margin-top: 70px;
   border-radius: 5px;
-  background-color: #9edfe3; /* Light cyan background color */
+  background-color: #9edfe3; 
 }
 
 h1 {
   font-size: 2.5em;
   margin-top: 20px;
   text-align: center;
-  color: black; /* Complementary green shade */
+  color: black; 
 }
 
 h2 {
@@ -257,8 +253,8 @@ button:hover {
   margin: 20px auto;
   padding: 0 15px;
   max-width: 600px;
-  max-height: 400px; /* Set max height */
-  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 400px; 
+  overflow-y: auto; 
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -278,7 +274,7 @@ button:hover {
   left: -20px;
   top: 0;
   bottom: 0;
-  width: 2px; /* Very thin line */
+  width: 2px; 
   background-color: #007BFF;
   z-index: 1;
 }
@@ -313,7 +309,7 @@ button:hover {
   color: #555;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .map-container {
     height: 400px;

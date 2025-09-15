@@ -46,14 +46,14 @@ export default {
 </script>
 
 <style scoped>
-/* General Topbar Styling */
+
 .topbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 70px;
-  background-color: #9edfe3; /* Complementary green shade */
+  background-color: #9edfe3; 
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -104,9 +104,8 @@ export default {
   color: black;
 }
 
-/* Hamburger Icon Styling */
 .hamburger {
-  display: none; /* Hidden by default */
+  display: none; 
   flex-direction: column;
   justify-content: space-between;
   width: 30px;
@@ -121,7 +120,6 @@ export default {
   border-radius: 2px;
 }
 
-/* Mobile Menu Styling */
 .menu-container {
   transition: max-height 0.3s ease-in-out;
   overflow: hidden;
@@ -141,42 +139,42 @@ export default {
   padding: 20px;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .menu-container {
-    display: none; /* Hide menu links in mobile view */
+    display: none; 
     flex-direction: column;
   }
 
   .menu-container.show {
-    display: flex; /* Show menu when toggled */
+    display: flex; 
   }
 
   .hamburger {
-    display: flex; /* Show hamburger icon in mobile view */
+    display: flex; 
   }
 
   .topbar-title {
-    font-size: 18px; /* Adjust title size for mobile */
+    font-size: 18px; 
   }
 
   .topbar {
-    padding: 0 15px; /* Reduce padding for smaller screens */
+    padding: 0 15px; 
   }
 }
 
 @media (min-width: 769px) {
   .menu-container {
-    display: flex; /* Restore horizontal layout for larger screens */
+    display: flex; 
     flex-direction: row;
-    position: static; /* Remove absolute positioning */
+    position: static; 
     background-color: transparent;
     box-shadow: none;
     padding: 0;
   }
 
   .hamburger {
-    display: none; /* Hide hamburger icon in larger screens */
+    display: none; 
   }
 }
 </style>

@@ -32,16 +32,16 @@
       userLocation: null,
       radiusCircle: null,
       radius: 5000,
-      directionsService: null, // For calculating directions
-      directionsRenderer: null, // For rendering directions
+      directionsService: null,
+      directionsRenderer: null,
     };
   },
   methods: {
-    // Initialize Google Map
+   
     initializeMap() {
       const defaultLocation = { lat: 28.6139, lng: 77.209 };
 
-      // Create a new map instance
+     
       this.map = new google.maps.Map(document.getElementById("map"), {
         center: defaultLocation,
         zoom: 12,
@@ -49,11 +49,11 @@
         mapTypeControl: false,
       });
 
-      // Add Transit Layer for public transit routes
+     
       const transitLayer = new google.maps.TransitLayer();
       transitLayer.setMap(this.map);
 
-      // Initialize Directions service and renderer
+     
       this.directionsService = new google.maps.DirectionsService();
       this.directionsRenderer = new google.maps.DirectionsRenderer({
         map: this.map,
@@ -87,7 +87,7 @@
       }
     },
 
-    // Show the radius circle
+   
     showRadiusCircle(userLocation) {
       if (this.radiusCircle) {
         this.radiusCircle.setMap(null);
@@ -105,7 +105,7 @@
       });
     },
 
-    // Fetch nearby bus stops
+   
     fetchNearbyBusStops(userLocation) {
       const service = new google.maps.places.PlacesService(this.map);
       const request = {
@@ -134,7 +134,7 @@
               },
             });
 
-            // Add click listener to show directions
+           
             marker.addListener("click", () => {
               this.showDirections(place.geometry.location);
             });
@@ -153,7 +153,7 @@
       });
     },
 
-    // Show directions to a specific location
+   
     showDirections(destination) {
       if (!this.userLocation) {
         alert("User location is not available.");
@@ -163,7 +163,7 @@
       const request = {
         origin: this.userLocation,
         destination: destination,
-        travelMode: google.maps.TravelMode.WALKING, // Choose the travel mode (WALKING, DRIVING, etc.)
+        travelMode: google.maps.TravelMode.WALKING,
       };
 
       this.directionsService.route(request, (result, status) => {
@@ -175,7 +175,7 @@
       });
     },
 
-    // Calculate the distance between two locations
+   
     calculateDistance(lat1, lng1, lat2, lng2) {
       const R = 6371;
       const dLat = this.degreesToRadians(lat2 - lat1);
@@ -190,7 +190,7 @@
       return distance;
     },
 
-    // Convert degrees to radians
+   
     degreesToRadians(degrees) {
       return degrees * (Math.PI / 180);
     },
@@ -210,7 +210,7 @@
   </script>
   
   <style scoped>
-/* Styling the map container */
+
 html, body {
   height: 100%;
   margin: 0;
@@ -218,11 +218,11 @@ html, body {
 }
 
 #map {
-  height: 500px; /* Fill the height of the parent container */
-  width: 100%;  /* Full width */
+  height: 500px; 
+  width: 100%;  
 }
 
-/* Page title styling */
+
 h2 {
   text-align: center;
   color: #333;
@@ -230,7 +230,7 @@ h2 {
   margin-bottom: 20px;
 }
 
-/* Styling for the bus stop list */
+
 h3 {
   color: #555;
   font-size: 1.4em;
@@ -266,14 +266,14 @@ ul li:hover {
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Styling for the distance text in list items */
+
 ul li::after {
   content: attr(data-distance);
   font-size: 0.9em;
   color: #666;
 }
 
-/* Fallback text styling */
+
 p {
   text-align: center;
   font-size: 1.2em;
@@ -282,7 +282,7 @@ p {
   margin-top: 20px;
 }
 
-/* General page styles */
+
 body {
   font-family: Arial, sans-serif;
   background: #fafafa;

@@ -31,7 +31,7 @@
     <div v-if="Object.keys(groupedSchedules).length > 0" class="schedule-container">
       <h2>Bus Schedules</h2>
       <div class="bus-grid">
-        <!-- Loop through the grouped schedules and show only the highlighted ones -->
+       
         <div v-for="(schedule, busId) in groupedSchedules" :key="busId" class="bus-container">
           <h3>Bus ID: {{ busId }}</h3>
           <table>
@@ -84,7 +84,7 @@ export default {
       sourceOptions: [],
       destinationOptions: [],
       selectedSchedule: [],
-      groupedSchedules: {}, // New object to hold the grouped schedules by bus_id
+      groupedSchedules: {},
     };
   },
   methods: {
@@ -99,7 +99,7 @@ export default {
         console.log("Parsing complete:", results.data);
         const data = results.data.filter((row) => row.route_id);
 
-        // Group data by route_id
+       
         const groupedRoutes = data.reduce((acc, row) => {
           if (!acc[row.route_id]) {
             acc[row.route_id] = { route_id: row.route_id, stops: [] };
@@ -117,7 +117,7 @@ export default {
           return acc;
         }, {});
 
-        // Map the grouped routes
+       
         this.routes = Object.values(groupedRoutes).map((route) => {
           const sortedStops = route.stops.sort((a, b) => a.stop_sequence - b.stop_sequence);
           return {
@@ -127,7 +127,7 @@ export default {
           };
         });
 
-        // Populate source and destination options
+       
         const allStops = data.map((row) => row.stop_name);
         this.sourceOptions = [...new Set(allStops)];
         this.destinationOptions = [...new Set(allStops)];
@@ -141,14 +141,14 @@ export default {
       return;
     }
 
-    // Filter routes that include both source and destination
+   
     const matchingRoutes = this.routes.filter((route) => {
       const sourceIndex = route.stops.indexOf(this.selectedSource);
       const destinationIndex = route.stops.indexOf(this.selectedDestination);
       return sourceIndex !== -1 && destinationIndex !== -1 && sourceIndex < destinationIndex;
     });
 
-    // Group stops by bus_id and filter for highlighted schedules
+   
     const groupedSchedules = matchingRoutes.flatMap((route) => {
       return route.schedule
         .filter((stop, index, arr) => {
@@ -169,7 +169,7 @@ export default {
         }, {});
     });
 
-    // Flatten the grouped schedules by bus_id
+   
     this.groupedSchedules = groupedSchedules.reduce((acc, curr) => {
       for (const busId in curr) {
         if (!acc[busId]) {
@@ -195,23 +195,23 @@ export default {
 
 .main {
  
-  background-size: cover; /* Ensures the image covers the entire viewport */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Prevent repetition */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 50px;
-  overflow: auto; /* Allow internal scrolling if content overflows */
-  padding: 1rem; /* Add padding for better spacing */
+  overflow: auto;
+  padding: 1rem;
 }
 
 .route-form {
   margin-top:60px;
   width: 90%;
-  max-width: 600px; /* Limit maximum width */
-  margin: 0 auto; /* Centered */
+  max-width: 600px;
+  margin: 0 auto;
   padding: 1rem;
   border: 1px solid #ddd;
   border-radius: 12px;
@@ -256,15 +256,15 @@ export default {
   border-radius: 8px;
   background-color: #9edfe3;
   max-width: 100%;
-  max-height: 80vh; /* Restrict height for better alignment */
-  overflow-y: auto; /* Enable scrolling for long content */
+  max-height: 80vh;
+  overflow-y: auto;
   overflow-y: auto;
   overflow-x: hidden;
   box-sizing: border-box;
   -ms-overflow-style: none;
 }
 ::-webkit-scrollbar {
-  display: none; /* Hide scrollbar */
+  display: none;
 }
 .bus-grid {
   display: flex;
