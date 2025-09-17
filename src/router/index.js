@@ -4,6 +4,7 @@ import dashboard from '../views/dashboard.vue'
 import aboutus from '../views/aboutus.vue'
 import Route from '../views/routes.vue'
 import NearbyBuses from '../views/NearbyBuses.vue'
+import contact from '../views/contact.vue'
 
 const router = createRouter({
     history:createWebHistory(import.meta.env.BASE_URL),
@@ -32,7 +33,13 @@ const router = createRouter({
             path:"/near",
             name:NearbyBuses,
             component:NearbyBuses
+          },
+          {
+            path:"/contact",
+            name:'contact',
+            component:contact
           }
+
     ]
 })
 

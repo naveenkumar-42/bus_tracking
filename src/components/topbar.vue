@@ -35,7 +35,7 @@ export default {
         { text: "Home", route: "/" },
         { text: "About Us", route: "/aboutus" },
         { text: "Route", route: "/routes" },
-        { text: "Conatact Us", route: "/contact-us" },
+        { text: "Conatact Us", route: "/contact" },
       ],
     };
   },
