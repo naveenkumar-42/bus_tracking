@@ -30,10 +30,10 @@ export default {
     return {
       isMenuOpen: false,
       menuItems: [
-        { text: "HOME", route: "/" },
-        { text: "ABOUT US", route: "/aboutus" },
-        { text: "SEARCH", route: "/routes" },
-        { text: "CONTACT US", route: "/contact-us" },
+        { text: "Home", route: "/" },
+        { text: "About Us", route: "/aboutus" },
+        { text: "Route", route: "/routes" },
+        { text: "Conatact Us", route: "/contact-us" },
       ],
     };
   },

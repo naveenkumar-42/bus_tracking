@@ -39,6 +39,7 @@ import axios from "axios";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import topbar from "../components/topbar.vue";
+import "../assets/css/route.css";
 
 export default {
   components: {
