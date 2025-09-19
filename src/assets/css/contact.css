@@ -1,0 +1,88 @@
+:root {
+  --primary-color: #007bff;        /* action blue */
+  --primary-hover: #0056b3;        /* darker blue for hover */
+  --accent-color: #1976d2;         /* form button */
+  --accent-hover: #1565c0;         /* hover button */
+  --background-main: #E0F7FA;      /* page background */
+  --background-box: #9edfe3;       /* container background */
+  --background-light: #fff;        /* white elements */
+  --border-color: #ccc;
+  --border-light: #ddd;
+  --text-main: #333;
+  --text-secondary: #555;
+  --success-color: #388e3c;
+  --info-bg: #A0C7C9;              /* info box background */
+  --shadow-light: rgba(0, 0, 0, 0.08);
+}
+
+.contact-page {
+    width: 60vw;
+    margin: 40px auto;
+    padding: 24px;
+    background: var(--background-box);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--shadow-light);
+    color: var(--text-main);
+    font-family: Arial, sans-serif;
+}
+
+.contact-form .form-group {
+    margin-bottom: 16px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 80%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--background-light);
+    font-size: 14px;
+}
+
+.contact-form button {
+    background: var(--primary-color);
+    color: var(--background-light);
+    border: none;
+    padding: 10px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.contact-form button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.success-message {
+    color: var(--success-color);
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+.contact-info {
+    margin-top: 32px;
+    background: var(--info-bg);
+    padding: 16px;
+    border-radius: 6px;
+    color: var(--text-main);
+}
+
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-info li {
+    margin-bottom: 8px;
+}
