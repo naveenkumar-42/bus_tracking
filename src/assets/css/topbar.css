@@ -1,17 +1,24 @@
-
+:root {
+  --topbar-bg: #9edfe3;
+  --menu-hover-bg: #A0C7C9;
+  --text-color: black;
+  --logo-size: 30px;
+  --shadow: rgba(99, 99, 99, 0.2);
+  --menu-border: #155724;
+}
 
 .topbar {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 70px;
-  background-color: #9edfe3; 
+  width: 97vw;
+  height: 10vh;
+  background-color: var(--topbar-bg); 
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 30px;
-  box-shadow: 0 2px 8px rgba(99, 99, 99, 0.2);
+  box-shadow: 0 2px 8px var(--shadow);
   z-index: 1000;
   font-family: "Arial", sans-serif;
 }
@@ -23,14 +30,14 @@
 }
 
 .topbar-logo {
-  height: 30px;
-  width: 40;
+  height: var(--logo-size);
+  width: auto;
 }
 
 .topbar-title {
   font-size: 20px;
   font-weight: bold;
-  color: black;
+  color: var(--text-color);
   margin: 0;
   margin-right: 5px;
 }
@@ -39,22 +46,24 @@
   display: flex;
   gap: 20px;
   margin-right: 200px;
+  transition: max-height 0.3s ease-in-out;
+  overflow: hidden;
 }
 
 .menu-link {
   text-decoration: none;
   font-size: 14px;
   font-weight: bold;
-  color: black;
-  border-bottom: #155724;
+  color: var(--text-color);
+  border-bottom: var(--menu-border);
   padding: 5px 10px;
   border-radius: 5px;
   transition: all 0.3s ease;
 }
 
 .menu-link:hover {
-  background-color: #A0C7C9;
-  color: black;
+  background-color: var(--menu-hover-bg);
+  color: var(--text-color);
 }
 
 .hamburger {
@@ -69,29 +78,23 @@
 
 .hamburger-line {
   height: 3px;
-  background-color: black;
+  background-color: var(--text-color);
   border-radius: 2px;
-}
-
-.menu-container {
-  transition: max-height 0.3s ease-in-out;
-  overflow: hidden;
 }
 
 .menu-container.show {
   display: flex;
   flex-direction: column;
-  background-color: #A0C7C9;
+  background-color: var(--menu-hover-bg);
   position: absolute;
   top: 70px;
   left: 0;
   width: 100%;
-  box-shadow: 0 4px 8px rgba(99, 99, 99, 0.2);
+  box-shadow: 0 4px 8px var(--shadow);
   gap: 10px;
   margin-top: 2px;
   padding: 20px;
 }
-
 
 @media (max-width: 768px) {
   .menu-container {
